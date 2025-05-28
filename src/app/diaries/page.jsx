@@ -10,12 +10,15 @@ export default function Home() {
   // フォーム送信時の処理
   async function handleSubmit(e) {
     e.preventDefault(); // ページリロードを防ぐ
-    const res = await fetch("http://localhost:8000/ai_gpt", {
-      // FastAPI のURL
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text }), // text = ユーザーの入力（日記内容）
-    });
+    const res = await fetch(
+      "https://app-001-step3-1-suzuyu-py-7.azurewebsites.net/ai_gpt",
+      {
+        // FastAPI のURL
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text }), // text = ユーザーの入力（日記内容）
+      }
+    );
 
     const data = await res.json();
     setResponse(data.ai_response);
