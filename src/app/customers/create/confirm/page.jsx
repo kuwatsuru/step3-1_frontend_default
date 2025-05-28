@@ -1,4 +1,6 @@
 "use client";
+export const dynamic = "force-dynamic"; //動的に
+
 import OneCustomerInfoCard from "@/app/components/one_customer_info_card.jsx";
 import fetchCustomer from "./fetchCustomer";
 import { useRouter, useSearchParams } from "next/navigation";
