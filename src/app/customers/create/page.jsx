@@ -10,6 +10,12 @@ export default function CreatePage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // カスタマーIDが空白の場合にエラー
+    if (formRef.current.customer_id.value === "") {
+      alert("Customer IDを入力してください");
+      return;
+    }
+
     const formData = new FormData(formRef.current);
     await createCustomer(formData);
     router.push(`./create/confirm?customer_id=${formData.get("customer_id")}`);
