@@ -2,8 +2,10 @@
 import { useState } from "react";
 import VoiceInputButton from "../components/voice_input_button";
 
-return (
-  <main>
-    <VoiceInputButton />
-  </main>
-);
+export default function Home() {
+  return (
+    <main>
+      <VoiceInputButton />
+    </main>
+  );
+}
