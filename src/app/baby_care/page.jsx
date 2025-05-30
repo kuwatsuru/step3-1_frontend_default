@@ -1,11 +1,12 @@
 "use client";
+import Navbar02Page from "../../components/navbar-02/navbar-02";
 import { useState } from "react";
 import VoiceInputButton from "../components/voice_input_button";
 
 export default function Home() {
   return (
-    <main className="flex justify-center pt-24 min-h-screen">
-      <VoiceInputButton />
+    <main>
+      <Navbar02Page />
     </main>
   );
 }
