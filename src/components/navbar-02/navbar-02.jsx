@@ -5,7 +5,7 @@ import { NavigationSheet } from "./navigation-sheet";
 import { SunIcon } from "lucide-react";
 import VoiceInputButton from "../../app/components/voice_input_button";
 
-export default function Navbar02Page({ isRecording, onToggleRecording }) {
+export default function Navbar02Page({ isRecording, onToggleRecording, children }) {
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="h-16 bg-background border-b">
@@ -42,6 +42,8 @@ export default function Navbar02Page({ isRecording, onToggleRecording }) {
           isRecording={isRecording}
           onToggleRecording={onToggleRecording}
         />
+
+        {children}
       </div>
     </div>
   );
