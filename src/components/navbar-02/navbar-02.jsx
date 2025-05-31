@@ -36,7 +36,7 @@ const Navbar02Page = () => {
 
       <div className="flex flex-col items-center justify-center min-h-screen">
         <div className="text-4xl mt-8">
-          音声で入力してください（例：ミルク 200）
+          音声で入力してください（例：ミルク 150）
         </div>
         <div>
           <VoiceInputButton />
