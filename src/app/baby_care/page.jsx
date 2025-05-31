@@ -4,11 +4,9 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [isRecording, setIsRecording] = useState(false);
-  const [text, setText] = useState<string>("");
-  const [transcript, setTranscript] = useState<string>("");
-  const [recognition, setRecognition] = useState<SpeechRecognition | null>(
-    null
-  );
+  const [text, setText] = useState("");
+  const [transcript, setTranscript] = useState("");
+  const [recognition, setRecognition] = useState(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -45,11 +43,22 @@ export default function Home() {
     };
   }, [recognition]);
 
+  //5秒で録音オフ
+  useEffect(() => {
+    if (isRecording) {
+      const timer = setTimeout(() => {
+        setIsRecording(false);
+      }, 5000); // 5後に録音停止
+
+      return () => clearTimeout(timer); // 録音が途中で停止した場合、タイマーを解除
+    }
+  }, [isRecording]);
+
   return (
     <main>
-      <Navbar02Page 
-      isRecording={isRecording}
-      onToggleRecording={() => setIsRecording((prev) => !prev)}
+      <Navbar02Page
+        isRecording={isRecording}
+        onToggleRecording={() => setIsRecording((prev) => !prev)}
       />
     </main>
   );

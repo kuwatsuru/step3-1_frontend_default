@@ -38,14 +38,11 @@ export default function Navbar02Page({ isRecording, onToggleRecording }) {
         <div className="text-4xl mt-8">
           音声で入力してください（例：ミルク 150）
         </div>
-        <div className="mt-4">
-          <Button onClick={onToggleRecording}>
-            {isRecording ? "🎙️ 録音停止" : "🎤 録音開始"}
-          </Button>
-        </div>
+        <VoiceInputButton
+          isRecording={isRecording}
+          onToggleRecording={onToggleRecording}
+        />
       </div>
     </div>
   );
 }
-
-
