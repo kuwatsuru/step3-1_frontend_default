@@ -5,7 +5,7 @@ import { NavigationSheet } from "./navigation-sheet";
 import { SunIcon } from "lucide-react";
 import VoiceInputButton from "../../app/components/voice_input_button";
 
-const Navbar02Page = () => {
+export default function Navbar02Page({ isRecording, onToggleRecording }) {
   return (
     <div className="min-h-screen bg-gray-100">
       <nav className="h-16 bg-background border-b">
@@ -38,22 +38,14 @@ const Navbar02Page = () => {
         <div className="text-4xl mt-8">
           音声で入力してください（例：ミルク 200）
         </div>
-        <div>
-          <VoiceInputButton />
+        <div className="mt-4">
+          <Button onClick={onToggleRecording}>
+            {isRecording ? "🎙️ 録音停止" : "🎤 録音開始"}
+          </Button>
         </div>
       </div>
     </div>
   );
-};
-
-
-
-export default function Navbar02Page({ isRecording, onToggleRecording }) {
-  return (
-    <nav>
-      <button onClick={onToggleRecording}>
-        {isRecording ? "録音停止" : "録音開始"}
-      </button>
-    </nav>
-  );
 }
+
+
