@@ -46,4 +46,14 @@ const Navbar02Page = () => {
   );
 };
 
-export default Navbar02Page;
+
+
+export default function Navbar02Page({ isRecording, onToggleRecording }) {
+  return (
+    <nav>
+      <button onClick={onToggleRecording}>
+        {isRecording ? "録音停止" : "録音開始"}
+      </button>
+    </nav>
+  );
+}
