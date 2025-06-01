@@ -81,10 +81,10 @@ export default function Home() {
           // backendから返ってくる { parsed: { milktype, volume, timestamp } }
           // 今回は JSON オブジェクトを文字列化して表示すると仮定
           const obj = data.parsed;
+
           // 例: "ミルク 150 mL"
           const formatted = `種類: ${obj.milktype} ／ 量: ${obj.volume}mL `;
           setParsedText(formatted);
-
           // 送信後に「生テキスト(text)」は消す
           setText("");
         } catch (err) {
@@ -105,18 +105,25 @@ export default function Home() {
         <div className="p-4 max-w-screen-md mx-auto">
           {/* 録音中に出す「途中経過」 */}
           {transcript && (
-            <div className="mt-2 text-gray-500 italic">
+            <div className="mt-2 text-gray-500 italic text-center">
               （途中）{transcript}
             </div>
           )}
 
           {/* 録音停止後の「確定テキスト」 */}
           {text && (
-            <div className="mt-4 text-gray-800 whitespace-pre-wrap">{text}</div>
+            <div className="mt-4 text-gray-800 whitespace-pre-wrap text-center">
+              解析中･･･
+            </div>
           )}
 
           {/* GPT 補正後の結果 */}
-          {parsedText && <div className="mt-4 text-blue-700">{parsedText}</div>}
+          {parsedText && (
+            <div className="mt-8 text-rose-600 text-2xl font-semibold text-center">
+              <div>🐣記録🐣</div>
+              <div>{parsedText}</div>
+            </div>
+          )}
         </div>
         {/* ──────────────────────────────────────────────── */}
       </Navbar02Page>
