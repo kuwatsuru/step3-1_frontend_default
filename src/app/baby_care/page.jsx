@@ -81,7 +81,6 @@ export default function Home() {
           // backendから返ってくる { parsed: { milktype, volume, timestamp } }
           // 今回は JSON オブジェクトを文字列化して表示すると仮定
           const obj = data.parsed;
-
           // 例: "ミルク 150 mL"
           const formatted = `種類: ${obj.milktype} ／ 量: ${obj.volume}mL `;
           setParsedText(formatted);
