@@ -80,10 +80,40 @@ export default function Home() {
           const data = await res.json();
           // backendから返ってくる { parsed: { milktype, volume, timestamp } }
           // 今回は JSON オブジェクトを文字列化して表示すると仮定
+
           const obj = data.parsed;
-          // 例: "ミルク 150 mL"
-          const formatted = `種類: ${obj.milktype} ／ 量: ${obj.volume}mL `;
+          let formatted = "";
+
+          // activity_type によって出力を切り替える
+          switch (obj.activity_type) {
+            case "feeding":
+              formatted = `授乳: 種類=${obj.milktype} ／ 量=${obj.volume}mL`;
+              break;
+
+            case "diaper":
+              // おしっこ／うんち
+              formatted = `排せつ: ${obj.diaper_type}`;
+              if (obj.diaper_type === "うんち") {
+                formatted += ` (硬さ: ${obj.hardness || "－"}, 量: ${
+                  obj.diaper_amount || "－"
+                })`;
+              }
+              break;
+
+            case "sleep":
+              formatted = "睡眠開始";
+              break;
+
+            case "wake":
+              formatted = "起床";
+              break;
+
+            default:
+              formatted = "不明な活動";
+          }
+
           setParsedText(formatted);
+
           // 送信後に「生テキスト(text)」は消す
           setText("");
         } catch (err) {
