@@ -58,6 +58,7 @@ export default function Home() {
               </CardTitle>
             </CardHeader>
           </Card>
+          <div className="text-4xl">▼</div>
         </div>
         <Features01Page />
       </div>
