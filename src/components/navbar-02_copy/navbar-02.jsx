@@ -5,7 +5,6 @@ import { NavigationSheet } from "./navigation-sheet";
 import { SunIcon } from "lucide-react";
 import VoiceInputButton from "../../app/components/voice_input_button";
 
-
 export default function Navbar02Page({
   isRecording,
   onToggleRecording,
@@ -40,15 +39,6 @@ export default function Navbar02Page({
       </nav>
 
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <div className="text-4xl mt-8">
-          <div>音声で入力してください</div>
-          <div>（例：ミルク 150）</div>
-        </div>
-        <VoiceInputButton
-          isRecording={isRecording}
-          onToggleRecording={onToggleRecording}
-        />
-
         {children}
       </div>
     </div>

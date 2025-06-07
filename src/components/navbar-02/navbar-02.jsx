@@ -41,10 +41,16 @@ export default function Navbar02Page({
       <div className="flex flex-col items-center justify-center min-h-screen">
         <div className="text-4xl mt-8">
           <div>音声で入力してください</div>
-          <div><br></br></div>
+          <div>
+            <br></br>
+          </div>
           <div className="text-3xl font-bold text-gray-700">🍼　ミルク 150</div>
-          <div className="text-3xl font-bold text-gray-700">🚽　うんち   硬め   いっぱい</div> 
-          <div className="text-3xl font-bold text-gray-700">💤　起きたよ　/　寝たよ</div>
+          <div className="text-3xl font-bold text-gray-700">
+            🚽　うんち 硬め いっぱい
+          </div>
+          <div className="text-3xl font-bold text-gray-700">
+            💤　起きたよ　/　寝たよ
+          </div>
         </div>
         <VoiceInputButton
           isRecording={isRecording}
