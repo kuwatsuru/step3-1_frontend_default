@@ -52,7 +52,7 @@ export default function Home() {
     if (isRecording) {
       const timer = setTimeout(() => {
         setIsRecording(false);
-      }, 5000); // 5後に録音停止
+      }, 7000); // 7秒後に録音停止
 
       return () => clearTimeout(timer); // 録音が途中で停止した場合、タイマーを解除
     }
@@ -150,7 +150,7 @@ export default function Home() {
           {parsedText && (
             <div className="mt-8 text-rose-600 text-2xl font-semibold text-center">
               <div>🐣記録🐣</div>
-              <div>{parsedText}</div>
+              <div className=" text-black-900 ">{parsedText}</div>
             </div>
           )}
         </div>
