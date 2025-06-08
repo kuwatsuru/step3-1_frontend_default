@@ -5,11 +5,11 @@ export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const date = searchParams.get("date");
-    const FASTAPI = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const FASTAPI = process.env.NEXT_PUBLIC_API_ENDPOINT;
 
     // 環境変数が取れているかチェック
     if (!FASTAPI) {
-      throw new Error("NEXT_PUBLIC_API_BASE_URL が定義されていません");
+      throw new Error("NEXT_PUBLIC_API_ENDPOINT が定義されていません");
     }
 
     if (!date) {
